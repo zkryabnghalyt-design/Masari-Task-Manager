@@ -1,0 +1,118 @@
+{
+  "entities": {
+    "Task": {
+      "title": "Task",
+      "description": "A daily task representing an item on the checklist with effort and priority levels.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title or action of the task."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional detailed notes or description of the task."
+        },
+        "completed": {
+          "type": "boolean",
+          "description": "The status indicating if the task has been finished."
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "The task priority ranking."
+        },
+        "category": {
+          "type": "string",
+          "description": "The custom or preset category the task belongs to."
+        },
+        "dueDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The expected completion date (YYYY-MM-DD)."
+        },
+        "effort": {
+          "type": "integer",
+          "description": "The estimated energy/effort required to complete the task, from 1 to 10."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp representing when the task was created."
+        },
+        "favorite": {
+          "type": "boolean",
+          "description": "Status indicating whether the task is starred or favorited."
+        }
+      },
+      "required": ["title", "completed", "priority", "category", "dueDate", "effort", "createdAt"]
+    },
+    "FcmToken": {
+      "title": "FcmToken",
+      "description": "An FCM registration token associated with a client instance to receive push notifications.",
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "The Firebase Cloud Messaging registration token."
+        },
+        "deviceType": {
+          "type": "string",
+          "description": "Device or browser type registering the token."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp representing when the token was registered or updated."
+        }
+      },
+      "required": ["token", "deviceType", "updatedAt"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Information tracking the user's points, total XP, and unlocked features/themes.",
+      "type": "object",
+      "properties": {
+        "points": {
+          "type": "integer",
+          "description": "The points balance the user has available to spend in the Shop."
+        },
+        "totalXp": {
+          "type": "integer",
+          "description": "Total XP accumulated over time to determine level."
+        },
+        "unlockedItems": {
+          "type": "array",
+          "description": "IDs of items unlocked in the gamification shop."
+        },
+        "activeTheme": {
+          "type": "string",
+          "description": "The ID of the theme active for this user."
+        },
+        "streak": {
+          "type": "integer",
+          "description": "The current productivity streak (number of consecutive days with all tasks completed)."
+        },
+        "hasGoldenBadge": {
+          "type": "boolean",
+          "description": "Whether the user has unlocked the Golden Badge (reached a 30-day streak)."
+        }
+      },
+      "required": ["points", "totalXp", "unlockedItems", "activeTheme", "streak", "hasGoldenBadge"]
+    }
+  },
+  "firestore": {
+    "tasks/{taskId}": {
+      "schema": "Task",
+      "description": "The top-level collection containing all user-authored tasks."
+    },
+    "fcm_tokens/{tokenId}": {
+      "schema": "FcmToken",
+      "description": "A collection containing registered client FCM registration tokens for push notifications."
+    },
+    "user_profiles/{profileId}": {
+      "schema": "UserProfile",
+      "description": "A collection tracking gamification metrics per client instance."
+    }
+  }
+}

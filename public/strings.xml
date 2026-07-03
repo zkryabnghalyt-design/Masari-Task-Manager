@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Real Google AdMob Application ID for Masari production -->
+    <string name="admob_app_id">ca-app-pub-8483717253760668~5083075326</string>
+
+    <!-- Real Google AdMob Rewarded Ad Unit ID for Masari production -->
+    <string name="admob_rewarded_ad_unit_id">ca-app-pub-8483717253760668/5809420943</string>
+</resources>

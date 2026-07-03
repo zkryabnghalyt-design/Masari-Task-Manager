@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+/* --------------------------------------------------------
+   Dedicated Global Dark Mode Overrides
+   -------------------------------------------------------- */
+
+/* Custom theme variables for Dark Mode */
+:root.dark, .dark {
+  --color-body-bg: #090d16;
+  --color-card-bg: #111827;
+  --color-card-border: #1f2937;
+  --color-text-primary: #f3f4f6;
+  --color-text-secondary: #e5e7eb;
+  --color-text-muted: #9ca3af;
+  --color-bg-muted: #1f2937;
+  --color-border-muted: #374151;
+  --color-input-bg: #1f2937;
+}
+
+/* Global transitions for buttery smooth theme switching */
+html, body, div, header, main, section, input, textarea, select, button {
+  transition-property: background-color, border-color, text-decoration-color, color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+/* Base Body and Outermost Containers Override */
+html.dark body,
+.dark .min-h-screen,
+.dark.min-h-screen {
+  background-color: var(--color-body-bg) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Cards & Panel Backgrounds */
+.dark .bg-white,
+html.dark .bg-white {
+  background-color: var(--color-card-bg) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Card & Item Borders */
+.dark .border-slate-100,
+html.dark .border-slate-100,
+.dark .border-slate-100\/80,
+html.dark .border-slate-100\/80,
+.dark .border-slate-50,
+html.dark .border-slate-50 {
+  border-color: var(--color-card-border) !important;
+}
+
+.dark .border-slate-200,
+html.dark .border-slate-200 {
+  border-color: var(--color-card-border) !important;
+}
+
+/* Primary Text */
+.dark .text-slate-800,
+html.dark .text-slate-800,
+.dark .text-slate-700,
+html.dark .text-slate-700 {
+  color: var(--color-text-primary) !important;
+}
+
+.dark .text-slate-900,
+html.dark .text-slate-900 {
+  color: #ffffff !important;
+}
+
+/* Secondary & Muted text */
+.dark .text-slate-600,
+html.dark .text-slate-600,
+.dark .text-slate-500,
+html.dark .text-slate-500 {
+  color: var(--color-text-secondary) !important;
+}
+
+.dark .text-slate-400,
+html.dark .text-slate-400 {
+  color: var(--color-text-muted) !important;
+}
+
+/* Input Fields & Textareas Scoping */
+.dark input[type="text"],
+html.dark input[type="text"],
+.dark input[type="date"],
+html.dark input[type="date"],
+.dark textarea,
+html.dark textarea,
+.dark select,
+html.dark select {
+  background-color: var(--color-input-bg) !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-card-border) !important;
+}
+
+.dark input::placeholder,
+html.dark input::placeholder,
+.dark textarea::placeholder,
+html.dark textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Inner component custom slate/grey containers */
+.dark .bg-slate-50,
+html.dark .bg-slate-50,
+.dark .bg-slate-50\/50,
+html.dark .bg-slate-50\/50 {
+  background-color: var(--color-input-bg) !important;
+}
+
+.dark .bg-slate-100,
+html.dark .bg-slate-100 {
+  background-color: var(--color-bg-muted) !important;
+}
+
+.dark .bg-slate-200\/60,
+html.dark .bg-slate-200\/60 {
+  background-color: rgba(55, 65, 81, 0.6) !important;
+}
+
+/* Select option styling inside dark mode */
+.dark select option,
+html.dark select option {
+  background-color: var(--color-card-bg) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Button with clean bg-white borders */
+.dark .bg-white.border,
+html.dark .bg-white.border {
+  background-color: var(--color-card-bg) !important;
+  border-color: var(--color-card-border) !important;
+}
+
+/* Override light preset-themes body-bg in dark mode */
+.dark .bg-\[\#F8FAFC\],
+html.dark .bg-\[\#F8FAFC\],
+.dark .bg-\[\#EFF5F1\],
+html.dark .bg-\[\#EFF5F1\],
+.dark .bg-\[\#FFF9F6\],
+html.dark .bg-\[\#FFF9F6\] {
+  background-color: var(--color-body-bg) !important;
+}
+
+/* Inline badges and active states styling */
+.dark .bg-indigo-50,
+html.dark .bg-indigo-50 {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+  color: #a5b4fc !important;
+}
+.dark .text-indigo-600,
+html.dark .text-indigo-600 {
+  color: #818cf8 !important;
+}
+.dark .text-indigo-700,
+html.dark .text-indigo-700 {
+  color: #a5b4fc !important;
+}
+
+/* Amber highlights */
+.dark .text-amber-700,
+html.dark .text-amber-700,
+.dark .text-amber-600,
+html.dark .text-amber-600,
+.dark .text-amber-800,
+html.dark .text-amber-800 {
+  color: #fbbf24 !important;
+}
+
+.dark .bg-amber-50,
+html.dark .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+}
+
+/* Emerald successes */
+.dark .bg-emerald-50,
+html.dark .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+}
+
+.dark .text-emerald-600,
+html.dark .text-emerald-600 {
+  color: #34d399 !important;
+}
+
+/* Sky Info indicators */
+.dark .bg-sky-50,
+html.dark .bg-sky-50 {
+  background-color: rgba(14, 165, 233, 0.15) !important;
+  color: #38bdf8 !important;
+}
+
+.dark .text-sky-600,
+html.dark .text-sky-600 {
+  color: #38bdf8 !important;
+}
+
+/* Prevent borders inside custom points shop or medals from overriding */
+.dark .border-amber-500\/20,
+html.dark .border-amber-500\/20 {
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
